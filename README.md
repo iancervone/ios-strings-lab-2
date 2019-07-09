@@ -10,6 +10,23 @@ You are given a string stored in variable `problem`. Write code so that you prin
 var problem = "split this string into words and print them on separate lines"
 
 // Your code
+
+
+var question1 = "split this string into words and print them on separate lines"
+let spaces = " "
+var word = ""
+
+for currentWord in question1 {
+if String(currentWord) != spaces {
+word += String(currentWord)
+continue
+}
+print(word)
+word = ""
+}
+print(word)
+
+
 ```
 
 Example
@@ -41,6 +58,33 @@ Given a string `testString` create a new variable called `condensedString` that 
 let testString = "  How   about      thesespaces  ?  "
 //condensedString = " How about thesespaces ? "
 ```
+let testString = "  How   about      thesespaces  ?  "
+
+func removeSpaces( text:String ) -> String {
+var result:String = ""
+var prevChar = " "
+
+for char in testString {
+
+let currentChar = String(char)
+
+if !( prevChar == " " && currentChar == prevChar ) {
+
+result.append( currentChar)
+}
+prevChar = currentChar
+}
+
+return result
+}
+let newString = removeSpaces (text:"\(testString)")
+print(newString)
+
+
+
+
+
+
 
 
 ## Question 3
@@ -54,6 +98,22 @@ Sample Input: `"Swift is the best language"`
 Sample Output: `"language best the is Swift"`
 
 
+
+
+let string = "Swift is the best language"
+var stringArray = string.split{$0 == " "}
+print(stringArray)
+//
+stringArray = stringArray.reversed()
+print(stringArray)
+
+
+
+
+
+
+
+
 ## Question 4
 
 Given a string with multiple words. Write code that prints how many of them are palindromes.
@@ -63,6 +123,22 @@ Example:
 Sample Input: `"danaerys dad cat civic bottle"`
 
 Sample Output: `2`
+
+
+
+var sentence = "danaerys dad cat civic bottle"
+var sentenceArray = sentence.split{$0 == " "}
+var palindromes = 0
+
+print(sentenceArray)
+
+for word in sentenceArray {
+if word == String(word.reversed()) {
+palindromes += 1
+}
+}
+print(palindromes)
+
 
 
 ## Question 5
@@ -82,6 +158,27 @@ Example:
 Sample Input: `"PPALLP"`
 
 Sample Output: `true`
+
+
+let record = "PPALLP"
+var absent = "A"
+var aContainer = 0
+var recordArray = Array(record)
+
+for i in recordArray{
+if String(i) == absent {
+aContainer += 1
+}
+}
+
+if record.contains("LLL") || aContainer > 1 {
+print(false)
+} else {
+print(true)
+}
+
+
+
 
 
 ## Question 6
